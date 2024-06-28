@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Document Editor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            width: 70%;
+            margin: 0 auto;
+        }
+
+        #editor {
+            /* width: 80%; */
+            height: 60vh;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            position: relative;
+        }
+
+        #placeholder {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: #aaa;
+            pointer-events: none;
+        }
+
+        #actions {
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        #title:focus {
+            outline: none;
+            /* Ensure there is no border when focused */
+        }
+    </style>
+</head>
+
+<body>
+    <h2 id="title" onblur="docTitle()" contenteditable="true"></h2>
+    <div id="actions">
+        <button onclick="saveDocument()">Save</button>
+    </div>
+    <div id="editor" contenteditable="true" oninput="modifiedContent()">
+        <div id="placeholder">Start writing your document here...</div>
+    </div>
+    <div id="actions">
+        <button onclick="shareDocument()">Share Document</button>
+    </div>
+
+</body>
+
+</html>
+
+<script src="./document.js"></script>
